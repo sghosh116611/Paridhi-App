@@ -1,9 +1,9 @@
 import React from "react";
 import {View,Text,StyleSheet} from "react-native";
 
-const Favourites = props => {
+const OnlineEvent = props => {
     return <View>
-        <Text>Favourites</Text>
+        <Text>This is the online List</Text>
     </View>
 };
 
@@ -11,4 +11,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Favourites;
+export default OnlineEvent;

@@ -1,4 +1,5 @@
 export default {
-    primary: "#2a3439",
+    primary: "#121212",
     secondary: "#003F87",
+    elevation: "#2D2D2D",
 };

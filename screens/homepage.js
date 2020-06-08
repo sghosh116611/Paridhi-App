@@ -1,17 +1,12 @@
 import React,{useState} from "react";
 import {View,ScrollView,StyleSheet,Image} from 'react-native';
-import {Container,Content,Text} from "native-base";
+import {Container,Content,Text,Footer} from "native-base";
 import CountDown from 'react-native-countdown-component';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Colors from "../constants/colors";
 
-
-
 const Homepage = props => {
-    // const [countDown,setCountDown] = useState(false);
-
-    // const showCountDownFinishText = () => setCountDown(true)
-
     return(
         <ScrollView>
             <Container style={styles.container}>
