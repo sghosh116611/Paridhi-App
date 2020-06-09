@@ -17,6 +17,8 @@ import Homepage from "../screens/homepage";
 import DomainList from "../screens/domainlist";
 import Event from "../screens/event";
 import OnlineEvent from "../screens/onlineEvent";
+import EventDetail from "../screens/eventDetail";
+import Registration from "../screens/registration";
 
 import Colors from "../constants/colors";
 
@@ -25,6 +27,7 @@ const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
 const DomainEventStack = createStackNavigator();
 const OnlineStack = createStackNavigator();
+const RegistrationStack = createStackNavigator();
 
 const IoniconsHeaderButton = (props) => (
     <HeaderButton {...props} IconComponent={Ionicons} iconSize={23} color="white" />
@@ -64,6 +67,9 @@ const domainStack = props => {
             <DomainEventStack.Screen name = "Event" component = {Event} options= {
                 ({route}) => ({title: route.params.title})
             }/>
+            <DomainEventStack.Screen name = "EventDetail" component = {EventDetail} options = {
+                ({route}) => ({title: route.params.title})
+            } />
         </DomainEventStack.Navigator>
     );
 };
@@ -76,6 +82,14 @@ const onlineStack = props => {
     );
 };
 
+const registrationStack = props => {
+    return(
+        <RegistrationStack.Navigator screenOptions = {defaultHeaderStyle}>
+            <RegistrationStack.Screen name = "Registration" component = {Registration} />
+        </RegistrationStack.Navigator>
+    );
+}
+
 const AppNavigation = props => {
     return( 
     <NavigationContainer>
@@ -83,6 +97,8 @@ const AppNavigation = props => {
             <Drawer.Screen name="Home" component={homeStack} />
             <Drawer.Screen name="Main Events" component={domainStack} />
             <Drawer.Screen name="Online Events" component={onlineStack} />
+            <Drawer.Screen name="Registration" component={registrationStack} />
+
         </Drawer.Navigator>
     </NavigationContainer>
   );

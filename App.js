@@ -9,7 +9,7 @@ import AppNavigation from "./navigation/AppNavigation";
 import eventReducer from "./store/reducer/eventReducer";
 
 const rootReducer = combineReducers({
-    event: eventReducer,
+    eventReducer: eventReducer,
 })
 
 const store = createStore(rootReducer);

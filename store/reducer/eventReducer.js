@@ -4,9 +4,11 @@ const initialState = {
     events: EVENTS,
 }
 
-const eventReducer = (state,action) => {
+const eventReducer = (state = initialState,action) => {
     switch(action){
         default:
             return state;
     }
 }
+
+export default eventReducer;

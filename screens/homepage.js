@@ -3,10 +3,16 @@ import {View,ScrollView,StyleSheet,Image} from 'react-native';
 import {Container,Content,Text,Footer} from "native-base";
 import CountDown from 'react-native-countdown-component';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import moment from "moment"
 
 import Colors from "../constants/colors";
 
 const Homepage = props => {
+
+    const finalDate = moment("10/8/2020","DD-MM-YY");
+    const today = moment();
+    const diff = finalDate.diff(today, 'days');
+    
     return(
         <ScrollView>
             <Container style={styles.container}>
@@ -15,10 +21,16 @@ const Homepage = props => {
                         <Image style={styles.image} source = {require("../assets/P.png")} />
                     </View>
                     <View style={styles.textcontainer}>
-                        <Text style={styles.bodytext}>PARIDHI {new Date().getFullYear()}</Text>
+                        <Text style={styles.bodytext}>PARIDHI {new Date().getFullYear() + 1}</Text>
                     </View>
-                    <View style={styles.coutndown}>
-                    <CountDown
+                    <View style={styles.countdown}>
+                    {diff > 30 ? 
+                    <View style = {styles.textcontainer}> 
+                        <Text style={styles.bodytext}>
+                            We're Coming Soon!
+                        </Text>
+                     </View> 
+                    : <CountDown
                         size={25}
                         until={5,259,492}
                         onFinish={()=> {}}
@@ -29,7 +41,8 @@ const Homepage = props => {
                         timeToShow={['D','H', 'M', 'S']}
                         timeLabels={{d: 'Days', h: 'Hours', m: 'Minutes', s: 'Seconds'}}
                         showSeparator
-                    />
+                    />}
+                    
                     </View>
                 </Content>
             </Container>
@@ -64,7 +77,8 @@ const styles = StyleSheet.create({
     bodytext:{
         color: "white",
         fontSize: 32,
-        fontFamily: "Batman"
+        fontFamily: "Batman",
+        textAlign: "center"
     },
 });
 
